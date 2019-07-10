@@ -15,7 +15,9 @@ class Aviatrix {
     var author = ""
     
     var currentLocation = "St. Louis"
-    
+    var distanceTraveled = 0
+    var maxFuel = 5000
+    var fuelLevel = 5000.0
     init(myAuthor : String){
         author = myAuthor
     }
@@ -34,6 +36,7 @@ class Aviatrix {
     }
     
     func flyTo(destination : String) {
+        distanceTraveled += distanceTo(target: destination, current: currentLocation)
         currentLocation = destination
         
     }
