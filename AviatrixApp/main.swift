@@ -19,10 +19,11 @@ func gauges(myPlane : Aviatrix) {
 //    print("| MPG:       | \(myPlane.milesPerGallon)")
 //    print("| Fuel Bill: | \(myPlane.fuelCost)")
 }
-
+//This function asks where to fly to
 func fly(myPlane : Aviatrix) {
     print("Where would you like to fly to? ")
     print(" ")
+    //Calling the Aviatrix class and using the Aviatrix function "Known Destinations"
     let destinations = myPlane.knownDestinations()
     
     for (index, city) in destinations.enumerated() {
@@ -41,7 +42,7 @@ func fly(myPlane : Aviatrix) {
         
         if fuelCheck(myPlane: myPlane, destination : desiredLocation) {
             myPlane.flyTo(destination: desiredLocation)
-            print("🛬 You've arrived in _________!")
+            print("🛬 You've arrived in \(myPlane.currentLocation)!")
             gauges(myPlane: myPlane)
         }
     }
@@ -79,7 +80,7 @@ var plane = Aviatrix(myAuthor: "Kode with Klossy Portland")
 print("Welcome to the Aviatrix Flight System by \(plane.author)")
 plane.start()
 
-print("You're currently in _________")
+print("You're currently in \(plane.currentLocation)")
 
 var command = ""
 

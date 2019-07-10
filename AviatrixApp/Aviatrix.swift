@@ -10,10 +10,13 @@ import Foundation
 
 
 class Aviatrix {
-    //Saying who created the plane and airline    var author = " "
-    var author = " "
     
-    init(myAuthor:String){
+    //Saying who created the plane and airline    var author = " "
+    var author = ""
+    
+    var currentLocation = "St. Louis"
+    
+    init(myAuthor : String){
         author = myAuthor
     }
    
@@ -31,14 +34,23 @@ class Aviatrix {
     }
     
     func flyTo(destination : String) {
+        currentLocation = destination
         
     }
     
-    func distanceTo(target : String) {
-    
+   
+     //I need the place & distance    //I want to tell every plane I create from this class how far places are
+    func distanceTo (target : String , current : String)->Int {
+        //I need to get info from another file
+        let data = AviatrixData()
+        return data.knownDistances[current]![target]!
+        //! means I know there is data
     }
-    
     func knownDestinations() -> [String] {
-       return ["St. Louis"]
+        //change this function so I return all the options for this destination
+        let data = AviatrixData()
+        //I called the aviatrix class
+       return Array(data.knownDistances.keys)
+        //I stored all of the destinations in an array
     }
 }
