@@ -43,7 +43,7 @@ class Aviatrix {
     
    
      //I need the place & distance    //I want to tell every plane I create from this class how far places are
-    func distanceTo (target : String , current : String)->Int {
+    func distanceTo (target : String , current : String) ->Int {
         //I need to get info from another file
         let data = AviatrixData()
         return data.knownDistances[current]![target]!
